@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "github.com/diegoholiveira/gobalancer/nodes";
+
+import "google/protobuf/empty.proto";
+
+package nodes;
+
+message NodeStatus {
+    string ID = 1;
+    string IP = 2;
+    uint32 port = 3;
+    uint32 max_connections = 4;
+    uint32 active_connections = 5;
+}
+
+service Manager {
+    rpc SetStatus(NodeStatus) returns (google.protobuf.Empty) {}
+}
