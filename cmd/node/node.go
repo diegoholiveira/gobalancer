@@ -54,7 +54,7 @@ func (h *handler) status() *nodes.NodeStatus {
 }
 
 func (h *handler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	n := rand.Intn(100)
+	n := rand.Intn(25)
 
 	h.add(int32(n))
 	defer h.add(int32(-n))
@@ -144,7 +144,7 @@ func main() {
 	}
 
 	ticker := time.NewTicker(10 * time.Millisecond)
-	randomKiller := time.NewTicker(10 * time.Second)
+	randomKiller := time.NewTicker(30 * time.Second)
 
 	// number of interactions ignored
 	j := 100

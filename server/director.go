@@ -1,7 +1,6 @@
 package server
 
 import (
-	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -15,7 +14,7 @@ func NewDirector(container NodesContainer) func(*http.Request) {
 
 		target := container.Next()
 
-		log.Printf("[TRAFFIC] Routing request to %s\n", target.Host)
+		// log.Printf("[TRAFFIC] Routing request to %s\n", target.Host)
 
 		targetQuery := target.RawQuery
 
